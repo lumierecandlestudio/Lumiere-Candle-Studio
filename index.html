@@ -4,355 +4,216 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lumière Candle Studio</title>
-<meta name="description" content="Discover handcrafted luxury candles and thoughtful gifts from Lumière Candle Studio.">
 <style>
-:root {
-  --cream:#f8f5ef;
-  --ivory:#fffdf9;
-  --beige:#e9dfd0;
-  --brown:#493a30;
-  --muted:#88796c;
-  --accent:#a77955;
-  --line:#e8dfd5;
-}
 *{box-sizing:border-box}
-body{
-  margin:0;background:var(--cream);color:var(--brown);
-  font-family:Georgia,'Times New Roman',serif;
-}
-button{font:inherit;cursor:pointer}
-a{color:inherit;text-decoration:none}
-.topbar{
-  text-align:center;background:var(--brown);color:#fff;
-  padding:10px;font:11px Arial,sans-serif;letter-spacing:2px;
-}
-header{
-  padding:24px 6%;display:flex;align-items:center;
-  justify-content:space-between;gap:15px;background:var(--ivory);
-  border-bottom:1px solid var(--line);
-}
-.brand{text-align:center}
-.brand h1{font-size:25px;font-weight:normal;letter-spacing:3px;margin:0}
-.brand p{font:9px Arial,sans-serif;letter-spacing:4px;margin:7px 0 0}
-.header-actions{display:flex;gap:16px;align-items:center;font:12px Arial,sans-serif}
-.header-actions button{border:0;background:none;color:var(--brown)}
-.hero{
-  min-height:390px;padding:85px 20px;text-align:center;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#eee4d6,#f8f5ef 55%,#e4d6c5);
-}
-.eyebrow{font:10px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase}
-.hero h2{font-size:clamp(35px,6vw,60px);font-weight:normal;margin:18px 0}
-.hero p{font-size:16px;line-height:1.8;max-width:520px;color:var(--muted)}
-.button{
-  display:inline-block;background:var(--brown);color:white;
-  border:1px solid var(--brown);padding:14px 25px;
-  font:10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;
-}
-.button.light{background:transparent;color:var(--brown)}
-.section{padding:65px 6%}
-.section-heading{text-align:center;margin-bottom:35px}
-.section-heading h2{font-size:32px;font-weight:normal;margin:10px 0}
-.section-heading p{font:13px Arial,sans-serif;color:var(--muted)}
-.categories{
-  display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:35px
-}
-.category-btn{
-  padding:12px 19px;border:1px solid #cfc2b3;background:transparent;
-  color:var(--brown);font:10px Arial,sans-serif;letter-spacing:1px;
-}
-.category-btn.active,.category-btn:hover{background:var(--brown);color:white}
-.products{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px
-}
-.product-card{background:var(--ivory);cursor:pointer}
-.product-art{
-  height:245px;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:20px;
-  background:linear-gradient(145deg,#eee5d9,#d9c8b5);
-  color:#75604d;position:relative;overflow:hidden;
-}
-.product-art span{
-  font-size:17px;letter-spacing:2px;max-width:180px;line-height:1.5
-}
-.product-info{text-align:center;padding:17px 10px 21px}
-.product-info h3{font-size:17px;font-weight:normal;margin:0 0 9px}
-.product-info p{font:10px Arial,sans-serif;letter-spacing:1px;color:var(--muted);margin:0}
-.view-label{display:block;margin-top:13px;font:9px Arial,sans-serif;letter-spacing:2px}
-.product-card:hover .product-art{filter:brightness(.97)}
-.about{
-  background:#eee6dc;text-align:center;padding:65px 20px
-}
-.about h2{font-size:30px;font-weight:normal}
-.about p{max-width:620px;margin:15px auto;line-height:1.9;color:var(--muted);font-size:15px}
-.contact{text-align:center;padding:65px 20px;background:var(--ivory)}
-.contact h2{font-size:30px;font-weight:normal}
-.contact p{color:var(--muted);line-height:1.8}
-footer{
-  background:var(--brown);color:#f8f5ef;text-align:center;
-  padding:35px 15px;font:11px Arial,sans-serif;line-height:2.2;
-}
-footer a{text-decoration:underline}
-.overlay{
-  display:none;position:fixed;inset:0;background:#0008;z-index:10;
-  align-items:center;justify-content:center;padding:15px;
-}
-.overlay.show{display:flex}
-.modal{
-  background:var(--ivory);width:min(480px,100%);max-height:90vh;
-  overflow:auto;padding:28px;position:relative;
-}
-.close{
-  position:absolute;right:17px;top:12px;background:none;border:0;
-  font-size:25px;color:var(--brown)
-}
-.modal-art{
-  height:190px;background:linear-gradient(145deg,#eee5d9,#d9c8b5);
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  padding:20px;margin:15px 0 22px;color:#75604d;font-size:21px;
-}
-.modal h2{font-weight:normal;font-size:26px;margin:8px 0}
-.modal p{line-height:1.7;color:var(--muted);font:13px Arial,sans-serif}
-.modal-price{font-size:19px;margin:15px 0}
-.modal .button{width:100%;text-align:center;margin-top:10px}
-.cart-panel{
-  position:fixed;z-index:20;right:0;top:0;height:100%;
-  width:min(420px,100%);background:var(--ivory);padding:25px;
-  box-shadow:-5px 0 25px #0002;transform:translateX(110%);
-  transition:transform .25s;overflow:auto;
-}
-.cart-panel.show{transform:translateX(0)}
-.cart-head{display:flex;justify-content:space-between;align-items:center}
-.cart-head h2{font-weight:normal}
-.cart-item{border-bottom:1px solid var(--line);padding:15px 0}
-.cart-item strong{font-weight:normal}
-.cart-item small{display:block;color:var(--muted);margin:7px 0}
-.quantity{display:flex;align-items:center;gap:12px;margin-top:8px}
-.quantity button{border:1px solid var(--line);background:none;padding:5px 11px}
-.cart-total{padding:20px 0;font-size:18px}
-.empty{text-align:center;color:var(--muted);padding:35px 0}
-@media(max-width:850px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){
-  header{padding:18px 4%}
-  .brand h1{font-size:18px;letter-spacing:2px}
-  .brand p{font-size:8px;letter-spacing:2px}
-  .header-actions{gap:8px;font-size:11px}
-  .products{gap:12px}
-  .product-art{height:180px}
-  .product-info h3{font-size:15px}
-  .section{padding:48px 4%}
-}
+body{margin:0;background:#faf8f4;color:#443b32;font-family:Georgia,serif}
+header{text-align:center;padding:25px 12px;background:#f0ebe2}
+.logo{font-size:29px;letter-spacing:4px}
+.tagline{font:10px Arial;letter-spacing:4px;margin-top:8px}
+nav{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;padding:17px}
+nav a{font:11px Arial;color:#514538;text-decoration:none;letter-spacing:1px}
+.hero{text-align:center;padding:75px 20px;background:#e9dfd1}
+.hero h1{font-size:38px;font-weight:normal;margin:0 0 15px}
+.hero p{font:14px Arial;line-height:1.8}
+button{cursor:pointer;font-family:Arial}
+.action{background:#514538;color:white;border:1px solid #514538;padding:12px 20px;letter-spacing:1px}
+.shop{max-width:1100px;margin:auto;padding:45px 16px}
+h2{text-align:center;font-weight:normal;letter-spacing:2px}
+.filters{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:25px 0 35px}
+.filters button{background:transparent;border:1px solid #b6a894;color:#514538;padding:10px 13px}
+.filters button.active{background:#514538;color:white}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:24px}
+.product{text-align:center;cursor:pointer}
+.product img,.placeholder{width:100%;aspect-ratio:1/1.15;object-fit:cover;background:#e9e1d6}
+.placeholder{display:flex;align-items:center;justify-content:center;padding:15px;color:#887968}
+.product h3{font-size:16px;font-weight:normal;margin:13px 0 7px}
+.product small{font:10px Arial;letter-spacing:1px;color:#887968}
+.info{text-align:center;padding:45px 20px;background:#f0ebe2;line-height:1.9}
+.info p{font:14px Arial}
+.info a,footer a{color:#514538}
+.cart{max-width:650px;margin:auto;padding:40px 18px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #ddd;padding:14px 0;font:14px Arial}
+.cart-row button{padding:6px 10px}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:10;align-items:center;justify-content:center;padding:15px}
+.modal.show{display:flex}
+.panel{background:#faf8f4;padding:22px;max-width:430px;width:100%;max-height:90vh;overflow:auto;text-align:center}
+.panel img{width:100%;max-height:330px;object-fit:contain}
+.panel h2{font-size:24px}
+.close{float:right;border:0;background:none;font-size:26px}
+footer{text-align:center;padding:25px;background:#e9dfd1;font:12px Arial;line-height:2}
 </style>
 </head>
 <body>
 
-<div class="topbar">HANDCRAFTED WITH LOVE · MADE TO MAKE MOMENTS SPECIAL</div>
-
 <header>
-  <div style="width:75px"></div>
-  <div class="brand">
-    <h1>LUMIÈRE</h1>
-    <p>CANDLE STUDIO</p>
-  </div>
-  <div class="header-actions">
-    <a href="https://www.instagram.com/lumi.erecandlestudio/" target="_blank">INSTAGRAM</a>
-    <button onclick="toggleCart()">CART (<span id="cart-count">0</span>)</button>
-  </div>
+<div class="logo">LUMIÈRE</div>
+<div class="tagline">CANDLE STUDIO</div>
 </header>
 
+<nav>
+<a href="#shop">SHOP</a>
+<a href="#about">ABOUT</a>
+<a href="#contact">CONTACT</a>
+<a href="#cart">CART (<span id="cartCount">0</span>)</a>
+</nav>
+
 <section class="hero">
-  <div class="eyebrow">A little light, a lot of warmth</div>
-  <h2>Make Every Moment Glow</h2>
-  <p>Thoughtfully handcrafted candles and beautiful gifts, created to bring warmth, fragrance and a little magic into your everyday moments.</p>
-  <a class="button" href="#shop">Explore the Collection</a>
+<h1>Light up your moments.</h1>
+<p>Handcrafted candles, made with love.<br>Bring warmth, fragrance and beauty into your space.</p>
+<button class="action" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">EXPLORE COLLECTION</button>
 </section>
 
-<section class="section" id="shop">
-  <div class="section-heading">
-    <div class="eyebrow">The Lumière collection</div>
-    <h2>Find Your Favourite</h2>
-    <p>Explore our candles and thoughtful gifting collections.</p>
-  </div>
-
-  <div class="categories">
-    <button class="category-btn active" onclick="filterProducts('All',this)">ALL PRODUCTS</button>
-    <button class="category-btn" onclick="filterProducts('Jar Candles',this)">JAR CANDLES</button>
-    <button class="category-btn" onclick="filterProducts('Decorative Candles',this)">DECORATIVE</button>
-    <button class="category-btn" onclick="filterProducts('Return Gifts',this)">RETURN GIFTS</button>
-    <button class="category-btn" onclick="filterProducts('Hamper Gifts',this)">HAMPER GIFTS</button>
-  </div>
-
-  <div class="products" id="products"></div>
+<section class="shop" id="shop">
+<h2>OUR COLLECTION</h2>
+<div class="filters" id="filters"></div>
+<div class="products" id="products"></div>
 </section>
 
-<section class="about">
-  <div class="eyebrow">The art of gifting</div>
-  <h2>Made With Care, Given With Love</h2>
-  <p>From everyday moments to life's most special celebrations, discover handcrafted candles, customised return gifts and thoughtfully curated hampers.</p>
+<section class="cart" id="cart">
+<h2>YOUR CART</h2>
+<div id="cartItems">Your cart is empty.</div>
+<p id="cartTotal"></p>
+<button class="action" onclick="checkout()">ORDER ON WHATSAPP</button>
 </section>
 
-<section class="contact">
-  <div class="eyebrow">Let's make something special</div>
-  <h2>Have Something in Mind?</h2>
-  <p>For custom orders, bulk enquiries and personalised gifts, get in touch with us.</p>
-  <a class="button" href="https://wa.me/918137002520" target="_blank">ORDER ON WHATSAPP</a>
-  <br><br>
-  <a class="button light" href="https://www.instagram.com/lumi.erecandlestudio/" target="_blank">FOLLOW US ON INSTAGRAM</a>
+<section class="info" id="about">
+<h2>THE ART OF CANDLELIGHT</h2>
+<p>Thoughtfully handcrafted candles to make everyday moments feel special.</p>
+</section>
+
+<section class="info" id="contact">
+<h2>GET IN TOUCH</h2>
+<p>For orders, questions and customised gifts:</p>
+<p><a href="https://wa.me/918137002520">WhatsApp: +91 8137002520</a></p>
+<p><a href="https://www.instagram.com/lumi.erecandlestudio/">Instagram: @lumi.erecandlestudio</a></p>
 </section>
 
 <footer>
-  <div style="font-family:Georgia;font-size:20px;letter-spacing:3px">LUMIÈRE CANDLE STUDIO</div>
-  Handcrafted candles & thoughtful gifts<br>
-  <a href="https://www.instagram.com/lumi.erecandlestudio/" target="_blank">@lumi.erecandlestudio</a><br>
-  <a href="https://wa.me/918137002520" target="_blank">WhatsApp: +91 81370 02520</a><br>
-  © 2026 Lumière Candle Studio
+© Lumière Candle Studio<br>Handcrafted with love.
 </footer>
 
-<!-- PRODUCT DETAILS -->
-<div class="overlay" id="product-overlay" onclick="if(event.target===this)closeProduct()">
-  <div class="modal">
-    <button class="close" onclick="closeProduct()">×</button>
-    <div class="modal-art" id="modal-art"></div>
-    <div class="eyebrow" id="modal-category"></div>
-    <h2 id="modal-name"></h2>
-    <p id="modal-description"></p>
-    <div class="modal-price" id="modal-price"></div>
-    <button class="button" style="width:100%" onclick="addToCart()">ADD TO CART</button>
-  </div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+<div class="panel">
+<button class="close" onclick="closeModal()">×</button>
+<div id="modalImage"></div>
+<h2 id="modalName"></h2>
+<p id="modalPrice"></p>
+<p id="modalDescription"></p>
+<button class="action" onclick="addToCart()">ADD TO CART</button>
 </div>
-
-<!-- SHOPPING CART -->
-<div class="cart-panel" id="cart-panel">
-  <div class="cart-head">
-    <h2>Your Shopping Bag</h2>
-    <button class="close" style="position:static" onclick="toggleCart()">×</button>
-  </div>
-  <div id="cart-items"></div>
-  <div class="cart-total" id="cart-total"></div>
-  <button class="button" style="width:100%" onclick="checkout()">ORDER VIA WHATSAPP</button>
-  <p style="font:11px Arial,sans-serif;color:#88796c;line-height:1.6">We'll confirm availability and final pricing for your order through WhatsApp.</p>
 </div>
 
 <script>
-const products = [
-  {name:"Strawberry Shortcake",category:"Jar Candles",price:600,description:"A sweet and delightful candle for a cosy, comforting atmosphere."},
-  {name:"Strawberry Bliss",category:"Jar Candles",price:null,description:"A lovely strawberry-inspired candle, handcrafted with care."},
-  {name:"Amber Zest",category:"Jar Candles",price:null,description:"A warm, inviting candle to add a touch of elegance to your space."},
-  {name:"Ocean Breeze",category:"Jar Candles",price:null,description:"Bring a fresh, breezy feeling into your favourite room."},
-  {name:"Passionfruit Candle",category:"Jar Candles",price:null,description:"A fruity, cheerful candle made for bright moments."},
-  {name:"Fresh Linen",category:"Jar Candles",price:650,description:"A clean, fresh fragrance for a beautifully welcoming home."},
-  {name:"Cookie and Cream",category:"Jar Candles",price:null,description:"A sweet, dessert-inspired candle for your cosy moments."},
-
-  {name:"Tulip Candle",category:"Decorative Candles",price:null,description:"A floral decorative candle that makes a lovely addition to any space."},
-  {name:"Daisy Candles",category:"Decorative Candles",price:null,description:"Charming daisy-inspired candles, perfect for gifting and decorating."},
-  {name:"Peony Candles",category:"Decorative Candles",price:null,description:"Elegant floral candles handcrafted to add beauty to your home."},
-  {name:"Christmas Tree Candle",category:"Decorative Candles",price:null,description:"A festive decorative candle to bring Christmas cheer to your home."},
-  {name:"Snowflake Candle",category:"Decorative Candles",price:null,description:"A winter-inspired decorative candle, perfect for the festive season."},
-
-  {name:"Tiny Candle Return Gifts",category:"Return Gifts",price:null,description:"Thoughtful mini candle gifts for birthdays, weddings, baptisms and special occasions. Customisation and bulk orders available."},
-  {name:"Customised Return Gifts",category:"Return Gifts",price:null,description:"Personalised candle gifts made for your special celebrations. Contact us for designs and bulk pricing."},
-
-  {name:"Christmas Hamper Set",category:"Hamper Gifts",price:null,description:"A festive candle hamper, thoughtfully put together for someone special."},
-  {name:"Gift for Loved Ones – Tiny Candles",category:"Hamper Gifts",price:null,description:"A lovely little candle gifting set for the people who make life special."},
-  {name:"Custom Candle Hamper",category:"Hamper Gifts",price:null,description:"Create a personalised candle hamper for birthdays, celebrations and thoughtful surprises."}
+const products=[
+{name:"Strawberry Shortcake",category:"Jar Candles",price:600,image:"strawberry-shortcake.jpg.jpeg"},
+{name:"Strawberry Bliss",category:"Jar Candles",image:"strawberry-bliss.jpg.jpeg"},
+{name:"Blueberry Bliss",category:"Jar Candles",image:"blueberry-bliss.jpg.jpeg"},
+{name:"Amber Zest",category:"Jar Candles",image:"Amber-zest.jpg.jpeg"},
+{name:"Ocean Breeze",category:"Jar Candles"},
+{name:"Passionfruit Candle",category:"Jar Candles"},
+{name:"Fresh Linen",category:"Jar Candles",price:650,image:"fresh-linen-candle.jpg.jpeg"},
+{name:"Cookie and Cream",category:"Jar Candles"},
+{name:"Tulip Candle",category:"Decorative Candles",image:"tulip-candle.jpg.jpeg"},
+{name:"Daisy Candles",category:"Decorative Candles"},
+{name:"Peony Candles",category:"Decorative Candles"},
+{name:"Christmas Tree Candle",category:"Decorative Candles",image:"christmas-tree-jar-candle.jpg.jpeg"},
+{name:"Snowflake Candle",category:"Decorative Candles"},
+{name:"Tiny Candle Return Gifts",category:"Return Gifts",image:"tiny-gift-candles.jpg.jpeg"},
+{name:"Customised Return Gifts",category:"Return Gifts",image:"return-gifts-candle.jpg.jpeg"},
+{name:"Christmas Hamper Set",category:"Hamper Gifts",image:"christmas-hamper-set-candles.jpg.jpeg"},
+{name:"Gift for Loved Ones – Tiny Candles",category:"Hamper Gifts",image:"tiny-gift-candles.jpg.jpeg"},
+{name:"Custom Candle Hamper",category:"Hamper Gifts"}
 ];
 
-let activeProduct = null;
-let cart = [];
+const categories=["All","Jar Candles","Decorative Candles","Return Gifts","Hamper Gifts"];
+let selected="All";
+let current=null;
+let cart=[];
 
-function renderProducts(category="All"){
-  const list = products.filter(p=>category==="All" || p.category===category);
-  document.getElementById("products").innerHTML = list.map(p=>{
-    const index=products.indexOf(p);
-    return `<div class="product-card" onclick="openProduct(${index})">
-      <div class="product-art"><span>${p.name}</span></div>
-      <div class="product-info">
-        <h3>${p.name}</h3>
-        <p>${p.category.toUpperCase()}</p>
-        <span class="view-label">VIEW DETAILS →</span>
-      </div>
-    </div>`;
-  }).join("");
+function renderFilters(){
+document.getElementById("filters").innerHTML=categories.map(c=>
+`<button class="${selected===c?'active':''}" onclick="filterProducts('${c}')">${c}</button>`
+).join("");
 }
 
-function filterProducts(category,button){
-  document.querySelectorAll(".category-btn").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
-  renderProducts(category);
+function renderProducts(){
+const list=selected==="All"?products:products.filter(p=>p.category===selected);
+document.getElementById("products").innerHTML=list.map(p=>{
+const i=products.indexOf(p);
+return `<div class="product" onclick="openProduct(${i})">
+${p.image?`<img src="${p.image}" alt="${p.name}">`:`<div class="placeholder">${p.name}</div>`}
+<h3>${p.name}</h3>
+<small>VIEW PRODUCT</small>
+</div>`;
+}).join("");
 }
 
-function openProduct(index){
-  activeProduct=index;
-  const p=products[index];
-  document.getElementById("modal-art").textContent=p.name;
-  document.getElementById("modal-category").textContent=p.category;
-  document.getElementById("modal-name").textContent=p.name;
-  document.getElementById("modal-description").textContent=p.description;
-  document.getElementById("modal-price").textContent=p.price===null?"Price on request":"₹"+p.price;
-  document.getElementById("product-overlay").classList.add("show");
-}
-function closeProduct(){
-  document.getElementById("product-overlay").classList.remove("show");
-}
-function addToCart(){
-  const p=products[activeProduct];
-  const found=cart.find(item=>item.name===p.name);
-  if(found)found.qty++;
-  else cart.push({...p,qty:1});
-  updateCart();
-  closeProduct();
-  document.getElementById("cart-panel").classList.add("show");
-}
-function toggleCart(){
-  document.getElementById("cart-panel").classList.toggle("show");
-}
-function updateCart(){
-  document.getElementById("cart-count").textContent=cart.reduce((s,p)=>s+p.qty,0);
-  const box=document.getElementById("cart-items");
-  if(!cart.length){
-    box.innerHTML='<div class="empty">Your shopping bag is empty.</div>';
-    document.getElementById("cart-total").textContent="";
-    return;
-  }
-  box.innerHTML=cart.map((p,i)=>`
-    <div class="cart-item">
-      <strong>${p.name}</strong>
-      <small>${p.price===null?"Price to be confirmed":"₹"+p.price}</small>
-      <div class="quantity">
-        <button onclick="changeQty(${i},-1)">−</button>
-        ${p.qty}
-        <button onclick="changeQty(${i},1)">+</button>
-        <button onclick="removeItem(${i})">Remove</button>
-      </div>
-    </div>`).join("");
-  const total=cart.reduce((s,p)=>s+(p.price||0)*p.qty,0);
-  const hasUnknown=cart.some(p=>p.price===null);
-  document.getElementById("cart-total").textContent=
-    "Subtotal: ₹"+total+(hasUnknown?" + items priced on request":"");
-}
-function changeQty(index,amount){
-  cart[index].qty+=amount;
-  if(cart[index].qty<=0)cart.splice(index,1);
-  updateCart();
-}
-function removeItem(index){
-  cart.splice(index,1);
-  updateCart();
-}
-function checkout(){
-  if(!cart.length){
-    alert("Your shopping bag is empty. Please add a product first.");
-    return;
-  }
-  let message="Hello Lumière Candle Studio! I would like to place an order:%0A%0A";
-  cart.forEach(p=>{
-    message+=`• ${p.name} x ${p.qty} — ${p.price===null?"Price on request":"₹"+(p.price*p.qty)}%0A`;
-  });
-  message+="%0APlease confirm availability, final pricing and delivery details. Thank you!";
-  window.open("https://wa.me/918137002520?text="+message,"_blank");
-}
+function filterProducts(category){
+selected=category;
+renderFilters();
 renderProducts();
-updateCart();
+}
+
+function openProduct(i){
+current=i;
+const p=products[i];
+document.getElementById("modalName").textContent=p.name;
+document.getElementById("modalPrice").textContent=p.price?"₹"+p.price:"Price on request";
+document.getElementById("modalDescription").textContent="Handcrafted with care by Lumière Candle Studio.";
+document.getElementById("modalImage").innerHTML=p.image?
+`<img src="${p.image}" alt="${p.name}">`:
+`<div class="placeholder">${p.name}</div>`;
+document.getElementById("modal").classList.add("show");
+}
+
+function closeModal(){
+document.getElementById("modal").classList.remove("show");
+}
+
+function addToCart(){
+const p=products[current];
+const found=cart.find(item=>item.name===p.name);
+if(found){found.qty++;}
+else{cart.push({name:p.name,price:p.price||0,qty:1});}
+closeModal();
+renderCart();
+}
+
+function changeQty(i,change){
+cart[i].qty+=change;
+if(cart[i].qty<=0)cart.splice(i,1);
+renderCart();
+}
+
+function renderCart(){
+document.getElementById("cartCount").textContent=cart.reduce((sum,p)=>sum+p.qty,0);
+document.getElementById("cartItems").innerHTML=cart.length?
+cart.map((p,i)=>`
+<div class="cart-row">
+<span>${p.name}<br>${p.price?"₹"+p.price:"Price on request"}</span>
+<span><button onclick="changeQty(${i},-1)">−</button> ${p.qty} <button onclick="changeQty(${i},1)">+</button></span>
+</div>`).join(""):"Your cart is empty.";
+
+const allPriced=cart.every(p=>p.price>0);
+document.getElementById("cartTotal").textContent=allPriced?
+"Total: ₹"+cart.reduce((sum,p)=>sum+p.price*p.qty,0):
+cart.length?"Final price will be confirmed on WhatsApp.":"";
+}
+
+function checkout(){
+if(!cart.length){
+alert("Your cart is empty.");
+return;
+}
+const message="Hello Lumière Candle Studio! I would like to order:\n"+
+cart.map(p=>p.name+" x "+p.qty).join("\n")+
+"\nPlease confirm my order and total price.";
+window.open("https://wa.me/918137002520?text="+encodeURIComponent(message),"_blank");
+}
+
+renderFilters();
+renderProducts();
+renderCart();
 </script>
 </body>
 </html>
