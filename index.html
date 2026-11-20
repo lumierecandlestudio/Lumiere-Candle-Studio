@@ -1,1 +1,243 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière Candle Studio</title>
+  <meta name="description" content="Discover handcrafted luxury candles by Lumière Candle Studio.">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #faf8f3;
+      color: #44382f;
+    }
+
+    header {
+      padding: 25px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e9e1d6;
+    }
+
+    .logo {
+      font-size: 25px;
+      letter-spacing: 4px;
+    }
+
+    .logo small {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #44382f;
+      margin-left: 25px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    .hero {
+      min-height: 510px;
+      padding: 90px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #eee6da;
+    }
+
+    .hero p {
+      font-family: Arial, sans-serif;
+      letter-spacing: 3px;
+      font-size: 11px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      font-weight: normal;
+      max-width: 650px;
+      line-height: 1.15;
+    }
+
+    .hero .description {
+      font-family: Arial, sans-serif;
+      letter-spacing: 0;
+      font-size: 15px;
+      line-height: 1.8;
+      margin-top: 22px;
+      max-width: 430px;
+    }
+
+    .button {
+      display: inline-block;
+      width: fit-content;
+      margin-top: 20px;
+      padding: 16px 28px;
+      background: #574638;
+      color: white;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .section {
+      padding: 75px 8%;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 36px;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    .section > p {
+      font-family: Arial, sans-serif;
+      color: #85786b;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .collections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .collection {
+      background: #eee6da;
+      padding: 65px 15px;
+      min-height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .collection h3 {
+      font-size: 22px;
+      font-weight: normal;
+    }
+
+    .contact {
+      background: #eee6da;
+      padding: 65px 20px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 34px;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 430px;
+        padding: 65px 7%;
+      }
+
+      .collections {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      LUMIÈRE
+      <small>CANDLE STUDIO</small>
+    </div>
+
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#collections">SHOP</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <p>HANDCRAFTED WITH LOVE</p>
+    <h1>Light up your little moments.</h1>
+    <p class="description">
+      Discover thoughtfully handcrafted candles
+      designed to bring warmth, beauty and comfort
+      into your everyday spaces.
+    </p>
+    <a href="#collections" class="button">EXPLORE COLLECTION</a>
+  </section>
+
+  <section class="section" id="collections">
+    <h2>Our Collections</h2>
+    <p>Find something special for every little moment.</p>
+
+    <div class="collections">
+      <div class="collection">
+        <h3>Jar Candles</h3>
+      </div>
+
+      <div class="collection">
+        <h3>Decorative Candles</h3>
+      </div>
+
+      <div class="collection">
+        <h3>Seasonal Collection</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>A little warmth, made for you.</h2>
+    <p>
+      Interested in customized candles or bulk orders?<br>
+      We'd love to hear from you.
+    </p>
+    <a href="https://www.instagram.com/lumierecandlestudio/"
+       class="button">CONTACT US</a>
+  </section>
+
+  <footer>
+    LUMIÈRE CANDLE STUDIO © 2026
+  </footer>
+
+</body>
+</html>
